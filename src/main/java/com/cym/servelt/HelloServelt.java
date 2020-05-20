@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * 类似controller类，接收servelt相关请求
  */
-@WebServlet("/hello")
+@WebServlet("/hello11")
 public class HelloServelt extends HttpServlet {
     private Logger log = LoggerFactory.getLogger(HelloServelt.class);
 
