@@ -94,18 +94,21 @@ public class BeanContainer {
      * 通过接口或者父类获取实现类或者子类的class集合，不包括本身
      *
      * @param clazz 接口或者父类Class;自身class
-     * @return
+     * @return 实例
      */
     public Object getBeanOrInterfaceImplBean(Class<?> clazz,String name) throws Exception {
         Object bean = getBean(clazz);
         if (bean == null) { //可能是父类
             Set<Class<?>> beans = getClassesBySuper(clazz);
             if (beans != null && !beans.isEmpty()){
+                if (beans.size()==1) { //只有一个实现类情况
+                    return getBean(beans.iterator().next());
+                }
                 for (Class<?> aClass : beans) {
                     //获取简单类名
                     String simpleName = aClass.getSimpleName();
                     if (simpleName.equalsIgnoreCase(name)) {
-                        return aClass;
+                        return getBean(aClass);
                     }
                 }
             }

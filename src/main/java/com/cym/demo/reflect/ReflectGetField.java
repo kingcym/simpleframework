@@ -1,5 +1,7 @@
 package com.cym.demo.reflect;
 
+import com.cym.service.impl.HelloServiceImpl;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -39,5 +41,13 @@ public class ReflectGetField {
         name.set(reflectGetField,"wwwwwww");
         //4.验证
         System.out.println(reflectGetField.name);
+
+        Class<?> aClass1 = Class.forName("com.cym.controller.HelloController");
+        Field field = aClass1.getDeclaredField("helloService");
+        field.setAccessible(true);
+        field.set(aClass1.getConstructor().newInstance(),new HelloServiceImpl());
+
+
+
     }
 }

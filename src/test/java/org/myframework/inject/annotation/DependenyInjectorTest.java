@@ -26,6 +26,8 @@ public class DependenyInjectorTest {
         //注入属性值
         new DependenyInjector().doIoc();
         assertNotEquals(null,helloController.getHelloService());
+        String s = helloController.helloDemo(null, null);
+        System.out.println(s);
 
     }
 
