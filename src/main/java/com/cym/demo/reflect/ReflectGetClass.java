@@ -17,6 +17,8 @@ public class ReflectGetClass {
         //第三种方式获取class对象
         Class<?> aClass3 = Class.forName("com.cym.demo.reflect.ReflectGetClass");
         System.out.println(aClass3.getName());
+        System.out.println(aClass3.getSimpleName());
+        System.out.println(aClass3.getTypeName());
 
         System.out.println(aClass1==aClass2);
         System.out.println(aClass1==aClass3);
